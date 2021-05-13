@@ -1,7 +1,7 @@
 import Employee from "../lib/Employee";
 
 describe(`Employee`, () => {
-  describe(`must have a name, id and email`, () => {
+  describe(`must have a valid name, id and email`, () => {
     it(`throws when no name is passed to the constructor`, () => {
       expect(() => new Employee()).toThrow("Must have a name, id and email");
     });
@@ -15,27 +15,27 @@ describe(`Employee`, () => {
         "Must have a name, id and email"
       );
     });
-  });
-  describe(`must have a positive integer for the id`, () => {
-    it(`throws when passed "1" for the id`, () => {
-      expect(
-        () => new Employee("Erlich Bachman", "1", "erlich@siliconvalley.com")
-      ).toThrow("Must have a positive integer for the id");
-    });
-    it(`throws when passed "0" for the id`, () => {
-      expect(
-        () => new Employee("Erlich Bachman", "0", "erlich@siliconvalley.com")
-      ).toThrow("Must have a positive integer for the id");
-    });
-    it(`throws when passed 0 for the id`, () => {
-      expect(
-        () => new Employee("Erlich Bachman", 0, "erlich@siliconvalley.com")
-      ).toThrow("Must have a positive integer for the id");
-    });
-    it(`throws when passed -10 for the id`, () => {
-      expect(
-        () => new Employee("Erlich Bachman", -1, "erlich@siliconvalley.com")
-      ).toThrow("Must have a positive integer for the id");
+    describe(`must have a positive integer for the id`, () => {
+      it(`throws when passed "1" for the id`, () => {
+        expect(
+          () => new Employee("Erlich Bachman", "1", "erlich@siliconvalley.com")
+        ).toThrow("Must have a positive integer for the id");
+      });
+      it(`throws when passed "0" for the id`, () => {
+        expect(
+          () => new Employee("Erlich Bachman", "0", "erlich@siliconvalley.com")
+        ).toThrow("Must have a positive integer for the id");
+      });
+      it(`throws when passed 0 for the id`, () => {
+        expect(
+          () => new Employee("Erlich Bachman", 0, "erlich@siliconvalley.com")
+        ).toThrow("Must have a positive integer for the id");
+      });
+      it(`throws when passed -10 for the id`, () => {
+        expect(
+          () => new Employee("Erlich Bachman", -1, "erlich@siliconvalley.com")
+        ).toThrow("Must have a positive integer for the id");
+      });
     });
   });
   it(`must have or inherit name, id and email properties and getName, getId, getEmail and getRole object methods`, () => {
