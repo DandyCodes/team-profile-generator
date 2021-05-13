@@ -16,26 +16,31 @@ describe(`Manager`, () => {
       );
     });
 
-    describe(`must have a positive integer for the id`, () => {
+    describe(`Id must be a positive integer`, () => {
       it(`throws when passed "1" for the id`, () => {
         expect(
           () => new Manager("Erlich Bachman", "1", "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed "0" for the id`, () => {
         expect(
           () => new Manager("Erlich Bachman", "0", "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed 0 for the id`, () => {
         expect(
           () => new Manager("Erlich Bachman", 0, "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed -10 for the id`, () => {
         expect(
           () => new Manager("Erlich Bachman", -1, "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
+      });
+      it(`throws when passed 1.1 for the id`, () => {
+        expect(
+          () => new Manager("Erlich Bachman", 1.1, "erlich@siliconvalley.com")
+        ).toThrow("Id must be a positive integer");
       });
     });
   });
@@ -84,28 +89,34 @@ describe(`Manager`, () => {
         () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com")
       ).toThrow("Must have an office number");
     });
-    describe(`must have a positive integer for the office number`, () => {
+    describe(`Office number must be a positive integer`, () => {
       it(`throws when passed "1" for the office number`, () => {
         expect(
           () =>
             new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", "1")
-        ).toThrow("Must have a positive integer for the office number");
+        ).toThrow("Office number must be a positive integer");
       });
       it(`throws when passed "0" for the office number`, () => {
         expect(
           () =>
             new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", "0")
-        ).toThrow("Must have a positive integer for the office number");
+        ).toThrow("Office number must be a positive integer");
       });
       it(`throws when passed 0 for the office number`, () => {
         expect(
           () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 0)
-        ).toThrow("Must have a positive integer for the office number");
+        ).toThrow("Office number must be a positive integer");
       });
       it(`throws when passed -10 for the office number`, () => {
         expect(
           () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", -1)
-        ).toThrow("Must have a positive integer for the office number");
+        ).toThrow("Office number must be a positive integer");
+      });
+      it(`throws when passed 1.1 for the office number`, () => {
+        expect(
+          () =>
+            new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1.1)
+        ).toThrow("Office number must be a positive integer");
       });
     });
   });

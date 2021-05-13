@@ -15,26 +15,31 @@ describe(`Employee`, () => {
         "Must have a name, id and email"
       );
     });
-    describe(`must have a positive integer for the id`, () => {
+    describe(`Id must be a positive integer`, () => {
       it(`throws when passed "1" for the id`, () => {
         expect(
           () => new Employee("Erlich Bachman", "1", "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed "0" for the id`, () => {
         expect(
           () => new Employee("Erlich Bachman", "0", "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed 0 for the id`, () => {
         expect(
           () => new Employee("Erlich Bachman", 0, "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
       });
       it(`throws when passed -10 for the id`, () => {
         expect(
           () => new Employee("Erlich Bachman", -1, "erlich@siliconvalley.com")
-        ).toThrow("Must have a positive integer for the id");
+        ).toThrow("Id must be a positive integer");
+      });
+      it(`throws when passed 1.1 for the id`, () => {
+        expect(
+          () => new Employee("Erlich Bachman", 1.1, "erlich@siliconvalley.com")
+        ).toThrow("Id must be a positive integer");
       });
     });
   });
