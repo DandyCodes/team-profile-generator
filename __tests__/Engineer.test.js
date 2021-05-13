@@ -42,7 +42,7 @@ describe(`Engineer`, () => {
 
   it(`must have or inherit name, id and email properties and getName, getId, getEmail and getRole object methods`, () => {
     const engineer = Object.freeze(
-      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com")
+      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
     );
     expect("name" in engineer).toEqual(true);
     expect("id" in engineer).toEqual(true);
@@ -55,10 +55,10 @@ describe(`Engineer`, () => {
 
   describe(`returns the correct values using associated object methods`, () => {
     const engineerOne = Object.freeze(
-      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com")
+      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
     );
     const engineerTwo = Object.freeze(
-      new Engineer("Gilfoyle", 99, "gilfoyle@siliconvalley.com")
+      new Engineer("Gilfoyle", 99, "gilfoyle@siliconvalley.com", "gilfoyle")
     );
     it(`returns the associated engineer name when getName is called on each engineer`, () => {
       expect(engineerOne.getName()).toEqual("Erlich Bachman");
@@ -76,5 +76,24 @@ describe(`Engineer`, () => {
       expect(engineerOne.getRole()).toEqual("Engineer");
       expect(engineerTwo.getRole()).toEqual("Engineer");
     });
+    it(`returns the associated engineer github when getGithub is called on each engineer`, () => {
+      expect(engineerOne.getGithub()).toEqual("erlich");
+      expect(engineerTwo.getGithub()).toEqual("gilfoyle");
+    });
+  });
+
+  describe(`must have a github`, () => {
+    it(`throws when no github is passed to the constructor`, () => {
+      expect(
+        () => new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com")
+      ).toThrow("Must have a github");
+    });
+  });
+  it(`must have or inherit a github property and a getGithub object method`, () => {
+    const engineer = Object.freeze(
+      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
+    );
+    expect("github" in engineer).toEqual(true);
+    expect("getGithub" in engineer).toEqual(true);
   });
 });
