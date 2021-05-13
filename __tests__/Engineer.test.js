@@ -58,6 +58,21 @@ describe(`Engineer`, () => {
     expect("getRole" in engineer).toEqual(true);
   });
 
+  describe(`must have a github`, () => {
+    it(`throws when no github is passed to the constructor`, () => {
+      expect(
+        () => new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com")
+      ).toThrow("Must have a github");
+    });
+    it(`must have or inherit a github property and a getGithub object method`, () => {
+      const engineer = Object.freeze(
+        new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
+      );
+      expect("github" in engineer).toEqual(true);
+      expect("getGithub" in engineer).toEqual(true);
+    });
+  });
+
   describe(`returns the correct values using associated object methods`, () => {
     const engineerOne = Object.freeze(
       new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
@@ -85,20 +100,5 @@ describe(`Engineer`, () => {
       expect(engineerOne.getGithub()).toEqual("erlich");
       expect(engineerTwo.getGithub()).toEqual("gilfoyle");
     });
-  });
-
-  describe(`must have a github`, () => {
-    it(`throws when no github is passed to the constructor`, () => {
-      expect(
-        () => new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com")
-      ).toThrow("Must have a github");
-    });
-  });
-  it(`must have or inherit a github property and a getGithub object method`, () => {
-    const engineer = Object.freeze(
-      new Engineer("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
-    );
-    expect("github" in engineer).toEqual(true);
-    expect("getGithub" in engineer).toEqual(true);
   });
 });

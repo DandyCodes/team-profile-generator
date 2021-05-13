@@ -58,32 +58,7 @@ describe(`Manager`, () => {
     expect("getRole" in manager).toEqual(true);
   });
 
-  describe(`returns the correct values using associated object methods`, () => {
-    const managerOne = Object.freeze(
-      new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1)
-    );
-    const managerTwo = Object.freeze(
-      new Manager("Gilfoyle", 99, "gilfoyle@siliconvalley.com", 1)
-    );
-    it(`returns the associated manager name when getName is called on each manager`, () => {
-      expect(managerOne.getName()).toEqual("Erlich Bachman");
-      expect(managerTwo.getName()).toEqual("Gilfoyle");
-    });
-    it(`returns the associated manager id when getId is called on each manager`, () => {
-      expect(managerOne.getId()).toEqual(1);
-      expect(managerTwo.getId()).toEqual(99);
-    });
-    it(`returns the associated manager email when getEmail is called on each manager`, () => {
-      expect(managerOne.getEmail()).toEqual("erlich@siliconvalley.com");
-      expect(managerTwo.getEmail()).toEqual("gilfoyle@siliconvalley.com");
-    });
-    it(`returns "Manager" when getRole is called on each manager`, () => {
-      expect(managerOne.getRole()).toEqual("Manager");
-      expect(managerTwo.getRole()).toEqual("Manager");
-    });
-  });
-
-  describe(`must have a valid office number`, () => {
+  describe(`must have an office number`, () => {
     it(`throws when no office number is passed to the constructor`, () => {
       expect(
         () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com")
@@ -119,11 +94,36 @@ describe(`Manager`, () => {
         ).toThrow("Office number must be a positive integer");
       });
     });
+    it(`must have or inherit an officeNumber property`, () => {
+      const manager = Object.freeze(
+        new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1)
+      );
+      expect("officeNumber" in manager).toEqual(true);
+    });
   });
-  it(`must have or inherit an officeNumber property`, () => {
-    const manager = Object.freeze(
+
+  describe(`returns the correct values using associated object methods`, () => {
+    const managerOne = Object.freeze(
       new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1)
     );
-    expect("officeNumber" in manager).toEqual(true);
+    const managerTwo = Object.freeze(
+      new Manager("Gilfoyle", 99, "gilfoyle@siliconvalley.com", 1)
+    );
+    it(`returns the associated manager name when getName is called on each manager`, () => {
+      expect(managerOne.getName()).toEqual("Erlich Bachman");
+      expect(managerTwo.getName()).toEqual("Gilfoyle");
+    });
+    it(`returns the associated manager id when getId is called on each manager`, () => {
+      expect(managerOne.getId()).toEqual(1);
+      expect(managerTwo.getId()).toEqual(99);
+    });
+    it(`returns the associated manager email when getEmail is called on each manager`, () => {
+      expect(managerOne.getEmail()).toEqual("erlich@siliconvalley.com");
+      expect(managerTwo.getEmail()).toEqual("gilfoyle@siliconvalley.com");
+    });
+    it(`returns "Manager" when getRole is called on each manager`, () => {
+      expect(managerOne.getRole()).toEqual("Manager");
+      expect(managerTwo.getRole()).toEqual("Manager");
+    });
   });
 });
