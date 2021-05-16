@@ -1,5 +1,3 @@
-import TeamBuilder from "./lib/team-builder.js";
+import buildTeam from "./src/build-team.js";
 
-const tm = new TeamBuilder();
-
-tm.buildManager();
+const team = await buildTeam();
