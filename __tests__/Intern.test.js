@@ -47,7 +47,12 @@ describe(`Intern`, () => {
 
   it(`must have or inherit name, id and email properties and getName, getId, getEmail and getRole object methods`, () => {
     const intern = Object.freeze(
-      new Intern("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
+      new Intern(
+        "Erlich Bachman",
+        1,
+        "erlich@siliconvalley.com",
+        "Silicon Valley"
+      )
     );
     expect("name" in intern).toEqual(true);
     expect("id" in intern).toEqual(true);
@@ -81,10 +86,20 @@ describe(`Intern`, () => {
 
   describe(`returns the correct values using associated object methods`, () => {
     const internOne = Object.freeze(
-      new Intern("Erlich Bachman", 1, "erlich@siliconvalley.com", "erlich")
+      new Intern(
+        "Erlich Bachman",
+        1,
+        "erlich@siliconvalley.com",
+        "Silicon Valley"
+      )
     );
     const internTwo = Object.freeze(
-      new Intern("Gilfoyle", 99, "gilfoyle@siliconvalley.com", "gilfoyle")
+      new Intern(
+        "Gilfoyle",
+        99,
+        "gilfoyle@siliconvalley.com",
+        "School of Hard Knocks"
+      )
     );
     it(`returns the associated intern name when getName is called on each intern`, () => {
       expect(internOne.getName()).toEqual("Erlich Bachman");
@@ -103,8 +118,8 @@ describe(`Intern`, () => {
       expect(internTwo.getRole()).toEqual("Intern");
     });
     it(`returns the associated intern school when getSchool is called on each intern`, () => {
-      expect(internOne.getSchool()).toEqual("erlich");
-      expect(internTwo.getSchool()).toEqual("gilfoyle");
+      expect(internOne.getSchool()).toEqual("Silicon Valley");
+      expect(internTwo.getSchool()).toEqual("School of Hard Knocks");
     });
   });
 });
