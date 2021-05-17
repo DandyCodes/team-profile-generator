@@ -1,3 +1,4 @@
 import buildTeam from "./src/build-team.js";
+import generateHTML from "./src/generate-html.js";
 
-const team = await buildTeam();
+generateHTML(await buildTeam());

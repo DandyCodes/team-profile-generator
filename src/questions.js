@@ -9,6 +9,7 @@ export default {
     message: "ID number: ",
     name: "id",
     validate: validatePositiveInteger,
+    filter: convertValidAnswerToNumberElseClear,
   },
   email: {
     type: "input",
@@ -20,6 +21,7 @@ export default {
     message: "Office Number:",
     name: "office",
     validate: validatePositiveInteger,
+    filter: convertValidAnswerToNumberElseClear,
   },
   github: {
     type: "input",
@@ -34,7 +36,13 @@ export default {
 };
 
 function validatePositiveInteger(answer) {
-  return !Number.isInteger(Number(answer)) || Number(answer) < 1
-    ? "Must be a positive integer"
-    : true;
+  return isPositiveInteger(answer) ? true : "Must be a positive integer";
+}
+
+function isPositiveInteger(answer) {
+  return Number.isInteger(Number(answer)) && Number(answer) > 0;
+}
+
+function convertValidAnswerToNumberElseClear(answer) {
+  return isPositiveInteger(answer) ? Number(answer) : "";
 }
