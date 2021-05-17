@@ -16,22 +16,22 @@ export default {
     message: "Email:",
     name: "email",
   },
-  office: {
+  OfficeNumber: {
     type: "input",
     message: "Office Number:",
-    name: "office",
+    name: "OfficeNumber",
     validate: validatePositiveInteger,
     filter: convertValidAnswerToNumberElseClear,
   },
-  github: {
+  GitHub: {
     type: "input",
-    message: "Github:",
-    name: "github",
+    message: "GitHub:",
+    name: "GitHub",
   },
-  school: {
+  School: {
     type: "input",
     message: "School:",
-    name: "school",
+    name: "School",
   },
 };
 

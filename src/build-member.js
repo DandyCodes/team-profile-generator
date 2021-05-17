@@ -1,22 +1,11 @@
 import inquirer from "inquirer";
 import questions from "./questions.js";
-import Manager from "../lib/Manager.js";
-import Engineer from "../lib/Engineer.js";
-import Intern from "../lib/Intern.js";
-const employeeTypes = new Map([
-  ["Manager", Manager],
-  ["Engineer", Engineer],
-  ["Intern", Intern],
-]);
+import getEmployeeType from "./get-employee-type.js";
+import getUniqueProperty from "./get-unique-property.js";
 
 export default async function (role) {
-  const EmployeeType = employeeTypes.get(role);
-  const uniqueProperty =
-    EmployeeType == Manager
-      ? "office"
-      : EmployeeType == Engineer
-      ? "github"
-      : "school";
+  const EmployeeType = getEmployeeType(role);
+  const uniqueProperty = getUniqueProperty(EmployeeType);
   const answers = await inquirer.prompt([
     questions.name,
     questions.id,
