@@ -1,1 +1,3 @@
-export default function (team) {}
+export default function (team) {
+  return ``;
+}
