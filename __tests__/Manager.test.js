@@ -58,47 +58,47 @@ describe(`Manager`, () => {
     expect("getRole" in manager).toEqual(true);
   });
 
-  describe(`must have an office number`, () => {
-    it(`throws when no office number is passed to the constructor`, () => {
+  describe(`must have an OfficeNumber`, () => {
+    it(`throws when no OfficeNumber is passed to the constructor`, () => {
       expect(
         () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com")
-      ).toThrow("Must have an office number");
+      ).toThrow("Must have an OfficeNumber");
     });
-    describe(`Office number must be a positive integer`, () => {
-      it(`throws when passed "1" for the office number`, () => {
+    describe(`OfficeNumber must be a positive integer`, () => {
+      it(`throws when passed "1" for the OfficeNumber`, () => {
         expect(
           () =>
             new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", "1")
-        ).toThrow("Office number must be a positive integer");
+        ).toThrow("OfficeNumber must be a positive integer");
       });
-      it(`throws when passed "0" for the office number`, () => {
+      it(`throws when passed "0" for the OfficeNumber`, () => {
         expect(
           () =>
             new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", "0")
-        ).toThrow("Office number must be a positive integer");
+        ).toThrow("OfficeNumber must be a positive integer");
       });
-      it(`throws when passed 0 for the office number`, () => {
+      it(`throws when passed 0 for the OfficeNumber`, () => {
         expect(
           () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 0)
-        ).toThrow("Office number must be a positive integer");
+        ).toThrow("OfficeNumber must be a positive integer");
       });
-      it(`throws when passed -10 for the office number`, () => {
+      it(`throws when passed -10 for the OfficeNumber`, () => {
         expect(
           () => new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", -1)
-        ).toThrow("Office number must be a positive integer");
+        ).toThrow("OfficeNumber must be a positive integer");
       });
-      it(`throws when passed 1.1 for the office number`, () => {
+      it(`throws when passed 1.1 for the OfficeNumber`, () => {
         expect(
           () =>
             new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1.1)
-        ).toThrow("Office number must be a positive integer");
+        ).toThrow("OfficeNumber must be a positive integer");
       });
     });
-    it(`must have or inherit an officeNumber property`, () => {
+    it(`must have or inherit an OfficeNumber property`, () => {
       const manager = Object.freeze(
         new Manager("Erlich Bachman", 1, "erlich@siliconvalley.com", 1)
       );
-      expect("officeNumber" in manager).toEqual(true);
+      expect("OfficeNumber" in manager).toEqual(true);
     });
   });
 
