@@ -79,7 +79,7 @@ describe(`Intern`, () => {
           "Silicon Valley"
         )
       );
-      expect("school" in intern).toEqual(true);
+      expect("School" in intern).toEqual(true);
       expect("getSchool" in intern).toEqual(true);
     });
   });

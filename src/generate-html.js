@@ -74,7 +74,7 @@ function getMemberUniquePropertyHTML(member) {
 function getMemberUniqueValueHTML(member, uniqueProperty) {
   const uniqueValue = member[uniqueProperty];
   return uniqueProperty == "GitHub"
-    ? `<a href="https://github.com/${uniqueValue}">${uniqueValue}</a>`
+    ? `<a target="_blank" href="https://github.com/${uniqueValue}">${uniqueValue}</a>`
     : `${uniqueValue}`;
 }
 
